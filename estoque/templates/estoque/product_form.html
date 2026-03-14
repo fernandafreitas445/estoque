@@ -1,13 +1,14 @@
 {% extends 'estoque/base.html' %}
 
 {% block title %}
-    {% if object %}Editar Produto{% else %}Novo Produto{% endif %} - EstoquePro
+{% if object %}Editar Produto{% else %}Novo Produto{% endif %} - EstoquePro
 {% endblock %}
 
 {% block content %}
 <div class="d-flex justify-content-between align-items-center mb-4">
     <h2 class="fw-bold m-0">{% if object %}Editar Produto{% else %}Novo Produto{% endif %}</h2>
-    <a href="{% url 'product_list' %}" class="btn btn-outline-secondary rounded-pill px-4"><i class="bi bi-arrow-left me-1"></i>Voltar</a>
+    <a href="{% url 'product_list' %}" class="btn btn-outline-secondary rounded-pill px-4"><i
+            class="bi bi-arrow-left me-1"></i>Voltar</a>
 </div>
 
 <div class="row">
@@ -16,7 +17,7 @@
             <form method="post">
                 {% csrf_token %}
                 {% if form.non_field_errors %}
-                    <div class="alert alert-danger">{{ form.non_field_errors }}</div>
+                <div class="alert alert-danger">{{ form.non_field_errors }}</div>
                 {% endif %}
 
                 <div class="row">
@@ -24,14 +25,16 @@
                         <div class="mb-3">
                             <label class="form-label text-secondary fw-semibold">{{ form.name.label }}</label>
                             {{ form.name }}
-                            {% if form.name.errors %}<div class="text-danger small mt-1">{{ form.name.errors|striptags }}</div>{% endif %}
+                            {% if form.name.errors %}<div class="text-danger small mt-1">{{ form.name.errors|striptags
+                                }}</div>{% endif %}
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="mb-3">
                             <label class="form-label text-secondary fw-semibold">{{ form.category.label }}</label>
                             {{ form.category }}
-                            {% if form.category.errors %}<div class="text-danger small mt-1">{{ form.category.errors|striptags }}</div>{% endif %}
+                            {% if form.category.errors %}<div class="text-danger small mt-1">
+                                {{form.category.errors|striptags }}</div>{% endif %}
                         </div>
                     </div>
                 </div>
@@ -39,7 +42,8 @@
                 <div class="mb-3">
                     <label class="form-label text-secondary fw-semibold">{{ form.description.label }}</label>
                     {{ form.description }}
-                    {% if form.description.errors %}<div class="text-danger small mt-1">{{ form.description.errors|striptags }}</div>{% endif %}
+                    {% if form.description.errors %}<div class="text-danger small mt-1">{{
+                        form.description.errors|striptags }}</div>{% endif %}
                 </div>
 
                 <div class="row">
@@ -47,23 +51,27 @@
                         <div class="mb-4">
                             <label class="form-label text-secondary fw-semibold">{{ form.price.label }}</label>
                             <div class="input-group">
-                                <span class="input-group-text bg-transparent text-secondary border-secondary border-opacity-25">R$</span>
+                                <span
+                                    class="input-group-text bg-transparent text-secondary border-secondary border-opacity-25">R$</span>
                                 {{ form.price }}
                             </div>
-                            {% if form.price.errors %}<div class="text-danger small mt-1">{{ form.price.errors|striptags }}</div>{% endif %}
+                            {% if form.price.errors %}<div class="text-danger small mt-1">{{ form.price.errors|striptags
+                                }}</div>{% endif %}
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="mb-4">
                             <label class="form-label text-secondary fw-semibold">{{ form.quantity.label }}</label>
                             {{ form.quantity }}
-                            {% if form.quantity.errors %}<div class="text-danger small mt-1">{{ form.quantity.errors|striptags }}</div>{% endif %}
+                            {% if form.quantity.errors %}<div class="text-danger small mt-1">{{
+                                form.quantity.errors|striptags }}</div>{% endif %}
                         </div>
                     </div>
                 </div>
 
                 <hr class="border-secondary border-opacity-25 mb-4">
-                <button type="submit" class="btn btn-primary px-5 py-2 fw-bold"><i class="bi bi-check2-circle me-1"></i>Salvar Produto</button>
+                <button type="submit" class="btn btn-primary px-5 py-2 fw-bold"><i
+                        class="bi bi-check2-circle me-1"></i>Salvar Produto</button>
             </form>
         </div>
     </div>
