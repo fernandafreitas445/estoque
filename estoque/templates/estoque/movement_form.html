@@ -1,0 +1,59 @@
+{% extends 'estoque/base.html' %}
+
+{% block title %}Registrar Movimentação - EstoquePro{% endblock %}
+
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <h2 class="fw-bold m-0"><i class="bi bi-box-seam me-2"></i>Registrar Movimentação</h2>
+    <a href="{% url 'movement_list' %}" class="btn btn-outline-secondary rounded-pill px-4"><i class="bi bi-arrow-left me-1"></i>Voltar</a>
+</div>
+
+<div class="row">
+    <div class="col-lg-6">
+        <div class="glass-card" style="border-top: 4px solid var(--accent-color);">
+            <form method="post">
+                {% csrf_token %}
+                {% if form.non_field_errors %}
+                    <div class="alert alert-danger">{{ form.non_field_errors }}</div>
+                {% endif %}
+
+                <div class="mb-3">
+                    <label class="form-label text-secondary fw-semibold">{{ form.product.label }}</label>
+                    {{ form.product }}
+                    {% if form.product.errors %}<div class="text-danger small mt-1">{{ form.product.errors|striptags }}</div>{% endif %}
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="mb-3">
+                            <label class="form-label text-secondary fw-semibold">{{ form.movement_type.label }}</label>
+                            {{ form.movement_type }}
+                            {% if form.movement_type.errors %}<div class="text-danger small mt-1">{{ form.movement_type.errors|striptags }}</div>{% endif %}
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="mb-4">
+                            <label class="form-label text-secondary fw-semibold">{{ form.quantity.label }} <small class="text-muted">(Apenas números positivos)</small></label>
+                            {{ form.quantity }}
+                            {% if form.quantity.errors %}<div class="text-danger small mt-1">{{ form.quantity.errors|striptags }}</div>{% endif %}
+                        </div>
+                    </div>
+                </div>
+
+                <hr class="border-secondary border-opacity-25 mb-4">
+                <button type="submit" class="btn btn-primary px-5 py-2 fw-bold w-100"><i class="bi bi-check2-circle me-1"></i>Confirmar Registro</button>
+            </form>
+        </div>
+    </div>
+    <div class="col-lg-6 mt-4 mt-lg-0">
+        <div class="glass-card h-100 bg-secondary bg-opacity-10 border-0">
+            <h4 class="fw-bold mb-3"><i class="bi bi-info-circle me-2"></i>Como Funciona?</h4>
+            <ul class="text-secondary list-unstyled" style="line-height: 1.8;">
+                <li class="mb-2"><strong class="text-white">Entrada:</strong> Adiciona a quantidade especificada ao estoque atual do produto selecionado.</li>
+                <li class="mb-2"><strong class="text-white">Saída:</strong> Subtrai a quantidade do estoque. O sistema não permitirá a saída se a quantidade disponível for menor que a solicitada.</li>
+                <li class="mb-2"><strong class="text-white">Responsável:</strong> Seu usuário será registrado automaticamente como o autor desta operação.</li>
+            </ul>
+        </div>
+    </div>
+</div>
+{% endblock %}

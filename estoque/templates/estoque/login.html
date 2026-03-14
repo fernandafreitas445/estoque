@@ -1,0 +1,31 @@
+{% extends 'estoque/base.html' %}
+
+{% block title %}Login - EstoquePro{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-5">
+        <div class="glass-card mt-5">
+            <h3 class="text-center fw-bold mb-4">Acesso Restrito</h3>
+            <form method="post">
+                {% csrf_token %}
+                {% if form.errors %}
+                <div class="alert alert-danger p-2 mb-3 rounded" style="background: rgba(220,53,69,0.2); border:1px solid rgba(220,53,69,0.3); color:#f8d7da;">
+                    <small>Usuário ou senha incorretos.</small>
+                </div>
+                {% endif %}
+                
+                <div class="mb-3">
+                    <label class="form-label text-secondary">Usuário</label>
+                    <input type="text" name="username" class="form-control form-control-lg" required autofocus>
+                </div>
+                <div class="mb-4">
+                    <label class="form-label text-secondary">Senha</label>
+                    <input type="password" name="password" class="form-control form-control-lg" required>
+                </div>
+                <button type="submit" class="btn btn-primary w-100 py-2 fw-bold text-uppercase" style="letter-spacing: 1px;">Entrar no Sistema</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
