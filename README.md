@@ -3,8 +3,8 @@
 Este é um projeto completo desenvolvido em Django e Django REST Framework para gerenciamento de estoque de loja.
 
 ## Funcionalidades
-- **Interface Web Premium**: Desenvolvida com HTML, CSS puro moderno (tipografia Inter, glassmorphism e Dark Mode dinâmico) integrado com Bootstrap.
-- **CRUD Completo**: Cadastro, listagem, edição e exclusão de Produtos, Categorias e Movimentações com controle de quantidade.
+- **Interface Web**: Desenvolvida com HTML, CSS e Bootstrap.
+- **CRUD**: Cadastro, listagem, edição e exclusão de Produtos, Categorias e Movimentações com controle de quantidade.
 - **Autenticação e Autorização**: Listagem de produtos é pública. As operações de manipulação (CRUD) restritas para usuários com login.
 
 ## Como Executar Localmente
