@@ -12,6 +12,9 @@ env/
 venv/
 ENV/
 .env/
+.env
+.venv
+venv/
 build/
 develop-eggs/
 dist/
@@ -27,11 +30,6 @@ wheels/
 *.egg-info/
 .installed.cfg
 *.egg
-
-# Virtual Environment
-.env
-.venv
-venv/
 
 # IDE
 .idea/
