@@ -1,6 +1,6 @@
 # EstoquePro - Sistema de Gerenciamento de Estoque
 
-Este é um projeto completo desenvolvido em Django e Django REST Framework para gerenciamento de estoque de loja.
+Este é um projeto completo desenvolvido em Django para gerenciamento de estoque de loja.
 
 ## Funcionalidades
 - **Interface Web**: Desenvolvida com HTML, CSS e Bootstrap.
